@@ -1,0 +1,11 @@
+# load routes using separate file, workaround for https://github.com/api-platform/core/issues/1562
+
+api_reporting_download_result:
+    path: "/api/reporting/{filename}/download"
+    methods: "GET"
+    requirements:
+        filename: '.+'
+    defaults:
+        _controller: App\Controller\Report\DownloadAction
+#        _api_resource_class: 'App\Entity\Price\Report'
+        _api_item_operation_name: download_reports
